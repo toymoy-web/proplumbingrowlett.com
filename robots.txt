@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://proplumbingrowlett.com/sitemap.xml
