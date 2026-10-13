@@ -5,7 +5,7 @@
   --bg:#FFFFFF;--bg2:#E9F3EF;--bg3:#F3F7F5;
   --border:#E1E7E3;--white:#FFFFFF;
   --font-head:'Manrope',sans-serif;--font-body:'Manrope',sans-serif;
-  --container:1180px;--radius:12px;
+  --container:1320px;--radius:12px;
   --shadow:0 6px 16px rgba(21,26,23,.08);--shadow-lg:0 14px 32px rgba(21,26,23,.14);
   --trans:.2s ease;
 }
@@ -75,9 +75,9 @@ nav#site-nav{background:#fff;box-shadow:0 1px 0 var(--border)}
 
 /* Page body / floating CTA rail structure (Design 49) */
 .pagebody{position:relative;padding:44px 0 64px}
-.layout{display:flex;gap:40px;align-items:flex-start}
-.mainflow{max-width:700px;flex:1;min-width:0}
-.floatcard{position:sticky;top:96px;width:270px;flex-shrink:0;background:var(--primary-dk);color:#fff;border-radius:16px;padding:26px}
+.layout{display:flex;gap:56px;align-items:flex-start}
+.mainflow{max-width:none;flex:1;min-width:0}
+.floatcard{position:sticky;top:96px;width:330px;flex-shrink:0;background:var(--primary-dk);color:#fff;border-radius:16px;padding:26px}
 .floatcard .num{font-family:var(--font-head);font-weight:800;font-size:21px;color:var(--accent);margin-bottom:14px}
 .floatcard .btn{width:100%;justify-content:center;box-sizing:border-box;margin-bottom:14px}
 .floatcard ul{list-style:none;font-size:13px}
@@ -91,7 +91,7 @@ nav#site-nav{background:#fff;box-shadow:0 1px 0 var(--border)}
 .emergency-badge .dot{width:8px;height:8px;border-radius:50%;background:#fff;flex-shrink:0}
 .zips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;list-style:none;padding:0}
 .zip-chip{display:inline-block;background:var(--bg2);color:var(--accent-dk);font-weight:700;font-size:12.5px;padding:6px 12px;border-radius:8px;border:1px solid var(--border)}
-.lead{color:var(--text-muted);font-size:16.5px;margin:14px 0 22px;max-width:64ch}
+.lead{color:var(--text-muted);font-size:17px;margin:14px 0 22px;max-width:none}
 .msec{padding:38px 0;border-top:1px solid var(--border)}
 .msec h2{margin-bottom:18px}
 .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:10px}
@@ -179,24 +179,38 @@ footer{background:#fff;border-top:1px solid var(--border);padding:44px 0 30px;fo
 
 .table-gap{margin-top:18px}
 
-/* v11: full-width page header with real <img> background */
-.pagehead{position:relative;isolation:isolate;background:linear-gradient(135deg,#161C1F 0%,#20272B 60%,#0C6049 140%);color:#fff;padding:44px 0 40px}
-.pagehead.has-hero{padding:64px 0 56px;min-height:300px;display:flex;align-items:center}
-.pagehead.has-hero .container{width:100%}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.pagehead.has-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,19,21,.93) 0%,rgba(14,19,21,.8) 55%,rgba(14,19,21,.55) 100%)}
-.pagehead-in{max-width:780px;margin-left:0;margin-right:auto}
-.pagehead .kick{color:#4FD9AE}
-.pagehead h1{color:#fff;margin:10px 0 14px}
-.pagehead .lead{color:#E3EBE7;margin:0 0 6px;max-width:66ch}
-.pagehead .emergency-badge{background:#fff;color:#161C1F;box-shadow:0 6px 18px rgba(0,0,0,.35)}
-.pagehead .emergency-badge .dot{background:#0F7A5E;box-shadow:0 0 0 4px rgba(15,122,94,.25)}
+/* v12: hero redesign - glass panel on photo + trust strip */
+.pagehead{position:relative;isolation:isolate;color:#fff;background:radial-gradient(900px 420px at 85% 10%,rgba(15,122,94,.35),transparent 60%),linear-gradient(135deg,#12171A 0%,#20272B 70%);display:flex;flex-direction:column;justify-content:flex-end;min-height:340px}
+.pagehead.has-hero{min-height:560px;background:#12171A}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+.pagehead.has-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(14,19,21,.78) 0%,rgba(14,19,21,.45) 48%,rgba(14,19,21,.12) 100%),linear-gradient(0deg,rgba(14,19,21,.55) 0%,transparent 35%)}
+.hero-grid{width:100%;padding-top:64px;padding-bottom:56px;flex:1;display:flex;align-items:center}
+.hero-panel{max-width:620px;background:rgba(18,23,26,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-top:4px solid #0F7A5E;border-radius:20px;padding:40px 44px 38px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.pagehead:not(.has-hero) .hero-panel{background:rgba(255,255,255,.04)}
+.hero-panel .emergency-badge{background:#fff;color:#161C1F;margin:0 0 18px;box-shadow:none}
+.hero-panel .emergency-badge .dot{background:#0F7A5E;box-shadow:0 0 0 4px rgba(15,122,94,.25)}
+.pagehead .kick{color:#4FD9AE;margin-bottom:6px}
+.pagehead h1{color:#fff;margin:6px 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.1}
+.pagehead h1 span{color:#4FD9AE!important}
+.hero-sub{font-size:18px;line-height:1.6;color:#E3EBE7;margin:0 0 26px!important}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn-ghost{display:inline-flex;align-items:center;font-weight:700;font-size:16px;padding:13px 24px;border-radius:10px;border:2px solid rgba(255,255,255,.55);color:#fff;text-decoration:none}
+.btn-ghost:hover{background:#fff;color:#161C1F}
+.pagehead .zips{margin-top:18px}
 .pagehead .zip-chip{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
+.hero-strip{background:#fff;border-top:1px solid var(--border);box-shadow:0 -10px 30px rgba(0,0,0,.12)}
+.hero-strip ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;padding:0}
+.hero-strip li{color:var(--text);font-weight:800;font-size:14px;padding:18px 16px 18px 34px;position:relative;border-left:1px solid var(--border)}
+.hero-strip li:first-child{border-left:none;padding-left:30px}
+.hero-strip li:before{content:"\2713";position:absolute;left:8px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;line-height:20px;text-align:center}
+.hero-strip li:first-child:before{left:4px}
+.intro{margin-bottom:8px;padding-bottom:26px;border-bottom:1px solid var(--border)}
+.intro p{font-size:18.5px;color:var(--text)}
 
 /* v11: paragraph rhythm */
 main p + p{margin-top:14px}
 main h2,main h3{margin-bottom:14px}
-main p,main li{font-size:16px}
+main p,main li{font-size:17px;line-height:1.75}
 
 /* v11: sticky sidecard */
 .sidecard{align-self:flex-start}
@@ -207,13 +221,14 @@ main p,main li{font-size:16px}
 .sidecard-link{display:block;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:13.5px;text-decoration:none}
 .sidecard-link:hover{color:#4FD9AE}
 .step-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:700px){.step-cards{grid-template-columns:1fr}.pagehead.has-hero{padding:44px 0 40px}}
+@media(max-width:1100px){.floatcard{width:290px}.layout{gap:36px}.hero-strip ul{grid-template-columns:1fr 1fr}.hero-strip li:nth-child(3){border-left:none;padding-left:30px}.hero-strip li:nth-child(3):before{left:4px}.hero-strip li:nth-child(n+3){border-top:1px solid var(--border)}}
+@media(max-width:700px){.step-cards{grid-template-columns:1fr}.pagehead.has-hero{min-height:0}.hero-grid{padding-top:36px;padding-bottom:32px}.hero-panel{padding:26px 22px;border-radius:16px}.hero-sub{font-size:16.5px}.hero-cta .btn,.hero-cta .btn-ghost{width:100%;justify-content:center}.hero-strip ul{grid-template-columns:1fr}.hero-strip li{border-left:none!important;padding:12px 12px 12px 36px!important;border-top:1px solid var(--border)}.hero-strip li:first-child{border-top:none}.hero-strip li:before{left:8px!important}.pagehead.has-hero:before{background:rgba(14,19,21,.7)}}
 main h2{line-height:1.22}
 main h3{line-height:1.3}
 .emergency-sec > h3{margin-top:26px}
-.pagehead h1 span{color:#4FD9AE!important}
 .sidecard .btn{background:var(--accent);color:#fff;box-shadow:0 8px 18px rgba(15,122,94,.35)}
 .sidecard .btn:hover{background:var(--accent-dk)}
 .localnote{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:26px 28px;margin:28px 0}
 .localnote h2{margin-top:0}
-.layout:has(.mainflow):not(:has(.sidecard)) .mainflow{max-width:760px}
+.layout:has(.mainflow):not(:has(.sidecard)) .mainflow{max-width:1000px}
+.hero-panel,.intro,main p,main li{overflow-wrap:anywhere}
